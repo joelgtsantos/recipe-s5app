@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.OneToOne;
 
 /**
  * @author Joel Santos
@@ -17,36 +15,30 @@ import javax.persistence.OneToOne;
  * 2018
  */
 @Entity
-public class Notes {
-
+public class UnitOfMeasure {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne
-	private Recipe recipe;
-	
-	@Lob
-	private String recipeNotes;
-	
+	private String uom;
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Recipe getRecipe() {
-		return recipe;
+
+	public String getUom() {
+		return uom;
 	}
-	public void setRecipe(Recipe recipe) {
-		this.recipe = recipe;
-	}
-	public String getRecipeNotes() {
-		return recipeNotes;
-	}
-	public void setRecipeNotes(String recipeNotes) {
-		this.recipeNotes = recipeNotes;
+
+	public void setUom(String uom) {
+		this.uom = uom;
 	}
 	
 	
+
 }

@@ -11,6 +11,7 @@ import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author Joel Santos
@@ -19,6 +20,7 @@ import lombok.Data;
  * 2018
  */
 @Data
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Notes {
 

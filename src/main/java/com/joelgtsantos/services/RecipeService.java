@@ -5,6 +5,7 @@ package com.joelgtsantos.services;
 
 import java.util.Set;
 
+import com.joelgtsantos.commands.RecipeCommand;
 import com.joelgtsantos.domain.Recipe;
 
 /**
@@ -18,5 +19,7 @@ public interface RecipeService {
 	Set<Recipe> getRecipes();
 	
 	Recipe findById(Long l);
+	
+	RecipeCommand saveRecipeCommand(RecipeCommand command);
 
 }

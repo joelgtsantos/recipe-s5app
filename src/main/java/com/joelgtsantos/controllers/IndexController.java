@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.joelgtsantos.services.RecipeService;
-import com.joelgtsantos.services.RecipeServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 

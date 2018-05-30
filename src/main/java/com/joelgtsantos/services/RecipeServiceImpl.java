@@ -77,4 +77,13 @@ public class RecipeServiceImpl implements RecipeService{
         return recipeToRecipeCommand.convert(savedRecipe);
     }
 
+	/*
+	 * @see com.joelgtsantos.services.RecipeService#findCommandById(java.lang.Long)
+	 */
+	@Transactional
+	@Override
+	public RecipeCommand findCommandById(Long l) {
+		return recipeToRecipeCommand.convert(findById(l));
+	}
+
 }

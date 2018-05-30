@@ -4,6 +4,7 @@
 package com.joelgtsantos.services;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
@@ -38,6 +39,20 @@ public class RecipeServiceImpl implements RecipeService{
 		Set<Recipe> recipes = new HashSet<>();
 		this.recipeRepository.findAll().iterator().forEachRemaining(recipes::add);
 		return recipes;
+	}
+
+	/* Get recipe by Id
+	 * @see com.joelgtsantos.services.RecipeService#getRecipeById()
+	 */
+	@Override
+	public Recipe findById(Long l) {
+		Optional<Recipe> recipe = this.recipeRepository.findById(l);
+		
+		if (!recipe.isPresent()) {
+            throw new RuntimeException("Recipe Not Found!");
+        }
+		
+		return recipe.get();
 	}
 
 }

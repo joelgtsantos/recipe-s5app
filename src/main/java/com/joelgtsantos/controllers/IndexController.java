@@ -8,6 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.joelgtsantos.services.RecipeService;
+import com.joelgtsantos.services.RecipeServiceImpl;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Joel Santos
@@ -15,6 +18,7 @@ import com.joelgtsantos.services.RecipeService;
  * recipe-app
  * 2018
  */
+@Slf4j
 @Controller
 public class IndexController {
 	
@@ -26,6 +30,7 @@ public class IndexController {
 
 	@RequestMapping({"", "/", "/index"})
 	public String getIndexPage(Model model) {
+		log.debug("Enter mapping index");
 		model.addAttribute("recipes", this.recipeService.getRecipes());
 		
 		return "index";

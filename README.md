@@ -12,7 +12,6 @@ Components used
 * Lombok
 * Unit Tests
 * Integration tests
-* Integration tests
 * Circle CI
 
 

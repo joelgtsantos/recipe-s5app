@@ -14,6 +14,7 @@ import com.joelgtsantos.commands.RecipeCommand;
 import com.joelgtsantos.converters.RecipeCommandToRecipe;
 import com.joelgtsantos.converters.RecipeToRecipeCommand;
 import com.joelgtsantos.domain.Recipe;
+import com.joelgtsantos.exceptions.NotFoundException;
 import com.joelgtsantos.repositories.RecipeRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -58,7 +59,7 @@ public class RecipeServiceImpl implements RecipeService{
 		Optional<Recipe> recipe = this.recipeRepository.findById(l);
 		
 		if (!recipe.isPresent()) {
-            throw new RuntimeException("Recipe Not Found!");
+            throw new NotFoundException("Recipe Not Found. For ID value " + l.toString());
         }
 		
 		return recipe.get();

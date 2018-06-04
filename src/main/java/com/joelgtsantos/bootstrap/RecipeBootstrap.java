@@ -13,12 +13,15 @@ import com.joelgtsantos.repositories.CategoryRepository;
 import com.joelgtsantos.repositories.RecipeRepository;
 import com.joelgtsantos.repositories.UnitOfMeasureRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,7 +32,9 @@ import org.springframework.transaction.annotation.Transactional;
  * recipe-app
  * 2018
  */
+@Slf4j
 @Component
+@Profile("default")
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 	
 	private final CategoryRepository categoryRepository;
@@ -50,6 +55,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 	@Transactional
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		recipeRepository.saveAll(getRecipes());
+		log.debug("********	Loading Bootstrap Data");
 	}
 	
 	 private List<Recipe> getRecipes() {
